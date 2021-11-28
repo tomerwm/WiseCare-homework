@@ -49,8 +49,8 @@ function App() {
         canvasCtx.restore();
 
         // position results (x,y)
-        const poseResults = results.poseWorldLandmarks;
-        console.log(poseResults)
+        // const poseResults = results.poseWorldLandmarks;
+        // console.log(poseResults)
       }
     } catch (error) {}
     // console.log(results);
@@ -83,7 +83,7 @@ function App() {
       camera = new cam.Camera(webCamRef.current.video, {
         onFrame: async () => {
           // console.log(webCamRef.current.video);
-            // const data = {image: webCamRef.current.video}
+          // const data = {image: webCamRef.current.video}
             await myPose.send({ image:webCamRef.current.video });
           //  await fetch("/api",{method:"POST",headers: {
           //   'Content-Type': 'application/json'
