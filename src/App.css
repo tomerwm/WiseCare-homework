@@ -1,0 +1,21 @@
+h1 {
+  width: 100vw;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.camera,
+.canvas {
+  position: absolute;
+  margin: auto;
+  top: 12vh;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 9;
+  width: 1080px;
+  height: 720px;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  /* color: #ce0000e7; */
+}
