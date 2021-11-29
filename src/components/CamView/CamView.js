@@ -35,6 +35,8 @@ function CamView() {
 	myPose.onResults((results) => setResults(results));
 
 	return (
+
+		
 		<Paper>
 			<Switch color={"primary"} value={showMesh} onClick={() => setShowMesh(!showMesh)} />
 			<div>

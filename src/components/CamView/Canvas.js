@@ -2,6 +2,9 @@ import React from "react";
 import * as pose from "@mediapipe/pose";
 import { useEffect } from "react";
 
+//styling
+import '../../styles/App.css';
+
 const Canvas = ({ canvasRef, results }) => {
 	const dConnect = window.drawConnectors;
 	const dLandmarks = window.drawLandmarks;
