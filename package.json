@@ -4,8 +4,11 @@
   "proxy": "http://localhost:5000",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.7.0",
+    "@emotion/styled": "^11.6.0",
     "@mediapipe/camera_utils": "^0.3.1632432234",
     "@mediapipe/pose": "^0.4.1633558788",
+    "@mui/material": "^5.2.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
