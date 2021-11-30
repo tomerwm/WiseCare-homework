@@ -10,7 +10,7 @@ import { Pose } from "@mediapipe/pose";
 
 function CamView() {
 	const [results, setResults] = useState(undefined);
-	const [showMesh, setShowMesh] = useState(false);
+	// const [showMesh, setShowMesh] = useState(true);
 
 	const canvasRef = useRef(null);
 	const webCamRef = useRef(null);
@@ -38,10 +38,10 @@ function CamView() {
 
 		
 		<Paper>
-			<Switch color={"primary"} value={showMesh} onClick={() => setShowMesh(!showMesh)} />
+			{/* <Switch color={"primary"} value={showMesh} onClick={() => setShowMesh(!showMesh)} /> */}
 			<div>
 				<Livestream webCamRef={webCamRef} myPose={myPose} />
-				{showMesh && <Canvas canvasRef={canvasRef} results={results} />}
+				{/*showMesh &&*/ <Canvas canvasRef={canvasRef} results={results} />}
 			</div>
 		</Paper>
 	);

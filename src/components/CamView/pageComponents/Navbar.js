@@ -4,7 +4,10 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import HomeIcon from '@mui/icons-material/Home';
+import TitleTwoToneIcon from '@mui/icons-material/TitleTwoTone';
+
 
 export const Navbar = () => {
     return (
@@ -12,10 +15,12 @@ export const Navbar = () => {
         <AppBar position="static">
           <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Header
+              <TitleTwoToneIcon/>
             </Typography>
               <Link to="/">
-                <Button variant="outlined" color="secondary"> Home IMAGE</Button>
+                <Button variant="contained" color="primary">
+               <HomeIcon/>
+                </Button>
               </Link>
           </Toolbar>
         </AppBar>
