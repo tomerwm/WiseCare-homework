@@ -6,13 +6,14 @@ import { useEffect } from "react";
 import '../../styles/App.css';
 
 const Canvas = ({ canvasRef, results }) => {
+	//pose functions that allow me to draw on canvas
+	//were added in index.html
 	const dConnect = window.drawConnectors;
 	const dLandmarks = window.drawLandmarks;
 
 	useEffect(() => {
-		// Setting h , w of canvas
-
 		if (results !== undefined) {
+			// Setting h , w of canvas
 			canvasRef.current.width = 1080;
 			canvasRef.current.height = 720;
 			const canvasElement = canvasRef.current;
@@ -26,6 +27,7 @@ const Canvas = ({ canvasRef, results }) => {
 					//come to the fornt
 					canvasCtx.globalCompositeOperation = "source-over";
 					//skeleton
+					//gets canvas, cordinations, body pattern from pose library 
 					dConnect(canvasCtx, results.poseLandmarks, pose.POSE_CONNECTIONS, {
 						color: "#ffffff",
 						lineWidth: 2,
@@ -34,13 +36,8 @@ const Canvas = ({ canvasRef, results }) => {
 					dLandmarks(canvasCtx, results.poseLandmarks, {
 						color: "pink",
 						lineWidth: 0,
-            
 					});
 					canvasCtx.restore();
-
-					// position results (x,y)
-					// const poseResults = results.poseWorldLandmarks;
-					// console.log(poseResults)
 				}
 			} catch (error) {}
 			// console.log(results);

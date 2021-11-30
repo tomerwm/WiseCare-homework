@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 import TitleTwoToneIcon from '@mui/icons-material/TitleTwoTone';
 
-
 export const Navbar = () => {
     return (
         <Box sx={{ flexGrow: 1 }}>

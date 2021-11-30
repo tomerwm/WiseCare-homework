@@ -1,37 +1,29 @@
-import { Container, makeStyles, Paper } from "@material-ui/core";
-import { blue } from "@material-ui/core/colors";
+import { Container, makeStyles} from "@material-ui/core";
 import Typography from '@mui/material/Typography';
 
 const useStyles = makeStyles((theme) => ({
   container: {
     paddingTop: theme.spacing(1),
   },
-  paper:{
-    marginTop: 64,
-    backgroundColor:'#E6E7E9',
-  },
-  color: {
+  title: {
     color: '#1976d2',
+    display:'inline',
   },
 }));
 
 const Text = () => {
-  const classes = useStyles();
+const classes = useStyles();
 
   return (
     <Container className={classes.container}>
-
-     <Paper className={classes.paper}>
-       <Typography variant="h3" component="div">
-         Its not just a LiveStream its <Typography className={classes.color}  variant="h3">BlazePose</Typography>
+       <Typography variant="h4" component="div">
+         It's not just a LiveStream it's <Typography className={classes.title} variant="h1">BlazePose</Typography>
        </Typography>
-       <Typography variant="h6" component="div">
-       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+       <Typography variant="body1" component="div">
+       Human pose estimation from video plays a critical role in various applications such as quantifying physical exercises, sign language recognition, and full-body gesture control. For example, it can form the basis for yoga, dance, and fitness applications. It can also enable the overlay of digital content and information on top of the physical world in augmented reality.
+        MediaPipe Pose is a ML solution for high-fidelity body pose tracking, inferring 33 3D landmarks and background segmentation mask on the whole body from RGB video frames utilizing our BlazePose research that also powers the ML Kit Pose Detection API. Current state-of-the-art approaches rely primarily on powerful desktop environments for inference, whereas our method achieves real-time performance on most modern mobile phones, desktops/laptops, in python and even on the web.
        </Typography>
-     </Paper>
-
     </Container>
   );
 };
-
 export default Text;

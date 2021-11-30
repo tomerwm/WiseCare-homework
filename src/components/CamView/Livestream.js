@@ -11,24 +11,21 @@ const Livestream = ({ webCamRef, myPose }) => {
 		if (typeof webCamRef.current !== "undefined" && webCamRef.current !== null) {
 			camera = new cam.Camera(webCamRef.current.video, {
 				onFrame: async () => {
-					// console.log(webCamRef.current.video);
-					// const data = {image: webCamRef.current.video}
 					await myPose.send({ image: webCamRef.current.video });
-					//  await fetch("/api",{method:"POST",headers: {
-					//   'Content-Type': 'application/json'
-					// },body:data
-					//  })
 				},
 				width: 1080,
 				height: 720,
 			});
 			camera.start();
 		}
+		return (()=> {
+			// camera.getTracks().forEach(track => track.stop());
+		})
 	}, []);
 
 	return (
 		<div>
-			<Webcam className="camera" ref={webCamRef} />
+			<Webcam className="camera" ref={webCamRef}/>
 		</div>
 	);
 };

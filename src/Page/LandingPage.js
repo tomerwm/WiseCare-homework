@@ -1,12 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Text from '../components/CamView/pageComponents/Text';
-import LOGO from '../styles/Illustrations/Develor.svg'
-import { makeStyles } from '@material-ui/core';
-
+import sittingMan from '../styles/Illustrations/Develor.svg';
+import { Container, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     img: {
@@ -16,35 +14,29 @@ const useStyles = makeStyles((theme) => ({
     btn : {
         left:'50%',
         marginTop: 50,
-        height:60,
-        width:150,
     },
   }));
-
-
 
 export const LandingPage = () => {
     const classes = useStyles();
     return (
         <>
+        <Container  maxWidth="lg">
           <Grid container
                 spacing={4}
                 alignItems="center">
             <Grid item md={8}>
-                <Paper>
                  <Text/>
-                </Paper>
-                <div>
-                <Link to="/LiveStream">
-                <Button variant="contained" className={classes.btn}>Start</Button>
-                </Link>
-                </div>
             </Grid>
 
             <Grid item md={4}>
-                    <img  className={classes.img} src={LOGO} />
+                    <img  className={classes.img} src={sittingMan} alt="illustration"/>
             </Grid>
           </Grid>
+                <Link to="/LiveStream">
+                <Button variant="contained" className={classes.btn} size="large">Start</Button>
+                </Link>
+                </Container>
         </>
             )
 }
