@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import * as cam from "@mediapipe/camera_utils";
 import Webcam from "react-webcam";
 
+
 const Livestream = ({ webCamRef, myPose }) => {
 	let camera = null;
 	useEffect(() => {
@@ -19,7 +20,7 @@ const Livestream = ({ webCamRef, myPose }) => {
 			camera.start();
 		}
 		return (()=> {
-			// camera.getTracks().forEach(track => track.stop());
+			 camera.getTracks().forEach(track => track.stop());
 		})
 	}, []);
 
