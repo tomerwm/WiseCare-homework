@@ -12,16 +12,14 @@ const Livestream = ({ webCamRef, myPose }) => {
 		if (typeof webCamRef.current !== "undefined" && webCamRef.current !== null) {
 			camera = new cam.Camera(webCamRef.current.video, {
 				onFrame: async () => {
-					await myPose.send({ image: webCamRef.current.video });
+					// send the image, check if condition is exsist else send null
+					await myPose.send( webCamRef.current ? { image: webCamRef.current.video} : null );
 				},
-				width: 1080,
-				height: 720,
+				width: 600,
+				height: 400,
 			});
 			camera.start();
 		}
-		return (()=> {
-			 camera.getTracks().forEach(track => track.stop());
-		})
 	}, []);
 
 	return (

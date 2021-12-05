@@ -14,8 +14,8 @@ const Canvas = ({ canvasRef, results }) => {
 	useEffect(() => {
 		if (results !== undefined) {
 			// Setting h , w of canvas
-			canvasRef.current.width = 1080;
-			canvasRef.current.height = 720;
+			canvasRef.current.width = 600;
+			canvasRef.current.height = 400;
 			const canvasElement = canvasRef.current;
 			const canvasCtx = canvasElement.getContext("2d");
 			try {
@@ -34,7 +34,7 @@ const Canvas = ({ canvasRef, results }) => {
 					});
 					//dots
 					dLandmarks(canvasCtx, results.poseLandmarks, {
-						color: "pink",
+						color: "#1976d2",
 						lineWidth: 0,
 					});
 					canvasCtx.restore();

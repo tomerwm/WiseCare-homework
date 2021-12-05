@@ -10,7 +10,7 @@ import { Pose } from "@mediapipe/pose";
 
 const useStyles = makeStyles((theme) => ({
 	main: {
-	  opacity:(loader)=> loader? 0 : 1,
+	  opacity:(loader)=> loader ? 0 : 1,
 	  transition:'0.5s',
 	},
 	loader :{
@@ -72,6 +72,7 @@ function CamView() {
 				{showMesh && <Canvas canvasRef={canvasRef} results={results} />}
 				<div className={classes.switchBtn}>
 					<Switch color={"primary"} value={showMesh} onClick={() => setShowMesh(!showMesh)} />
+					<h4>Toggle pose</h4>
 				 </div>
 			</div>
 			</>
