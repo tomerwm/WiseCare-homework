@@ -33,7 +33,7 @@ export const LandingPage = () => {
                     <img  className={classes.img} src={sittingMan} alt="illustration"/>
             </Grid>
           </Grid>
-                <Link to="/LiveStream">
+                <Link to="/livestream">
                 <Button variant="contained" className={classes.btn} size="large">Start</Button>
                 </Link>
                 </Container>

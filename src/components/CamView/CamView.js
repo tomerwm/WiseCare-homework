@@ -39,7 +39,7 @@ function CamView() {
 	const canvasRef = useRef(null);
 	const webCamRef = useRef(null);
 
-	  const classes = useStyles(loader);
+	const classes = useStyles(loader);
 
 	// instantiate instans of pose 
 	const myPose = new Pose({
@@ -57,11 +57,13 @@ function CamView() {
 		smoothSegmentation: true,
 		minDetectionConfidence: 0.5,
 		minTrackingConfidence: 0.5,
+		// selfieMode: true,
 	});
 
 	//wating for function and gets parameter
 	myPose.onResults((results) => {
 		setResults(results);
+		console.log(results);
 		setloader(false);
 	});
 	return (
