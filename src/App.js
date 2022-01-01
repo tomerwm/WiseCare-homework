@@ -6,10 +6,12 @@ import { LandingPage } from "./Page/LandingPage";
 import { Navbar } from "./components/CamView/pageComponents/Navbar";
 import {Footer} from "./components/CamView/pageComponents/Footer";
 import './styles/index.css';
-
+import SocketProvider from './context/socket';
 
 function App() {
 	return (
+    <SocketProvider>
+
     <Router>
 		<div>
       <Navbar/>
@@ -24,6 +26,7 @@ function App() {
       <Footer/>
 		</div>
     </Router>
+    </SocketProvider>
 	);
 }
 

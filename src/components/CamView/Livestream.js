@@ -1,26 +1,53 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React from "react";
-import { useEffect } from "react";
-import * as cam from "@mediapipe/camera_utils";
+import React, {  useContext,  useEffect,  useState } from "react";
 import Webcam from "react-webcam";
+import { SocketContext } from "../../context/socket";
 
 
 const Livestream = ({ webCamRef, myPose }) => {
-	let camera = null;
-	useEffect(() => {
-		//have camera
-		if (typeof webCamRef.current !== "undefined" && webCamRef.current !== null) {
-			camera = new cam.Camera(webCamRef.current.video, {
-				onFrame: async () => {
-					// send the image, check if condition is exsist else send null
-					await myPose.send( webCamRef.current ? { image: webCamRef.current.video} : null );
-				},
-				width: 600,
-				height: 400,
-			});
-			camera.start();
-		}
-	}, []);
+
+	const socket = useContext(SocketContext);
+
+	setInterval(() => {
+		
+		socket.emit("cam", {image :webCamRef.current ?  webCamRef.current.video : null, myPose}); 
+	}, 1000/30)
+	
+  useEffect(() => {
+		
+    // as soon as the component is mounted, do the following tasks:
+
+    // emit USER_ONLINE event
+
+    // subscribe to socket events
+    // socket.on("JOIN_REQUEST_ACCEPTED", handleInviteAccepted); 
+
+    
+  }, []);
+	
+	//   useEffect(() => {
+	// 		socketRef.current = io.connect("http://localhost:8080")
+	// 		// console.log(JSON.stringify(webCamRef.current));
+	// 		const pose = {myPose,webCamRef}
+	// 		if (typeof webCamRef.current !== "undefined" && webCamRef.current !== null) {
+
+	// 			console.log(webCamRef.current);
+	// 		}
+			
+	// 		// socket.on("handleCam", handleCam); 
+			
+	// 		if(camera !== null){
+	// 			if (typeof webCamRef.current !== "undefined" && webCamRef.current !== null) {
+	// 				camera.start();
+	// 			}
+				
+	// 		}
+			
+	// 		return ()=>socketRef.current.disconnect()
+	// 	// 	return () => {
+	// 	// 		// socket.off("handleCam", handleCam);
+  //   // };
+  // }, [camera, handleCam]);
 
 	return (
 		<div>

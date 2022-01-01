@@ -66,7 +66,7 @@ function CamView() {
 	});
 	return (
 		<>
-			{loader && <div className={classes.loaderContainer}><CircularProgress className={classes.loader} size={300}/> </div>}
+			{loader && <div className={classes.loaderContainer}><CircularProgress className={classes.loader} size={300} thickness={1}/> </div>}
 			 <div className={classes.main}>
 				<Livestream webCamRef={webCamRef} myPose={myPose} />
 				{showMesh && <Canvas canvasRef={canvasRef} results={results} />}
