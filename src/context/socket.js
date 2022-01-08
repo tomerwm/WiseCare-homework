@@ -1,11 +1,10 @@
 import io from "socket.io-client";
 import { createContext } from "react";
+import SocketContext from "./socket-context";
 
 const SOCKET_URL = process.env.REACT_APP_SERVER_URL;
 
 const socket = io.connect(SOCKET_URL);
-
-export const SocketContext = createContext();
 
 const SocketProvider = ({ children }) => {
   return (
