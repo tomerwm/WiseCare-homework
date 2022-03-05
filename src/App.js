@@ -7,9 +7,12 @@ import { Navbar } from "./components/CamView/pageComponents/Navbar";
 import {Footer} from "./components/CamView/pageComponents/Footer";
 import './styles/index.css';
 
+//context
+import {ContextSockProvider} from './context/context-socetio'
 
 function App() {
 	return (
+    <ContextSockProvider>
     <Router>
 		<div>
       <Navbar/>
@@ -24,6 +27,7 @@ function App() {
       <Footer/>
 		</div>
     </Router>
+    </ContextSockProvider>
 	);
 }
 

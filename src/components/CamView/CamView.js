@@ -1,12 +1,18 @@
-import { useRef, useState } from "react";
+import { useRef, useState,useContext } from "react";
 // components
 import {makeStyles} from '@material-ui/core'
 import {Switch,CircularProgress} from "@mui/material";
 import Canvas from "./Canvas";
 import Livestream from "./Livestream";
 
+//context
+import ContextSocket from '../../context/context-socetio'
+
 // ready to use API (https://google.github.io/mediapipe/getting_started/javascript.html#ready-to-use-javascript-solutions)
 import { Pose } from "@mediapipe/pose";
+
+
+
 
 const useStyles = makeStyles((theme) => ({
 	main: {
@@ -35,6 +41,7 @@ function CamView() {
 	const [results, setResults] = useState(undefined);
 	const [loader, setloader] = useState(true);
 	const [showMesh, setShowMesh] = useState(false);
+	const Socket =  useContext(ContextSocket)
 
 	const canvasRef = useRef(null);
 	const webCamRef = useRef(null);
@@ -61,11 +68,16 @@ function CamView() {
 	});
 
 	//wating for function and gets parameter
-	myPose.onResults((results) => {
+	myPose.onResults( async(results) => {
 		setResults(results);
-		console.log(results);
+		// console.log(results);
 		setloader(false);
+		
+			await Socket.emit("message", results)
 	});
+
+  
+	
 	return (
 		<>
 			{loader && <div className={classes.loaderContainer}><CircularProgress className={classes.loader} size={300}/> </div>}
@@ -75,6 +87,7 @@ function CamView() {
 				<div className={classes.switchBtn}>
 					<Switch color={"primary"} value={showMesh} onClick={() => setShowMesh(!showMesh)} />
 					<h4>Toggle pose</h4>
+					
 				 </div>
 			</div>
 			</>
